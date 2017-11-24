@@ -1,0 +1,30 @@
+{
+	"name": "zurhalbenstunde",
+	"version": "1.0.0",
+	"description": "Backend for \"@zurhalbenstunde\" on twitter",
+	"keywords": [
+		"twitter", "bot"
+	],
+	"main": "index.js",
+	"author": "Marc Hein",
+	"license": "GNU GPLv3",
+	"dependencies": {
+		"twitter": "^1.7.1"
+	},
+	"devDependencies": {
+		"eslint": "^4.11.0"
+	},
+	"scripts": {
+		"clean": "rm -rf node_modules",
+		"lint": "eslint -c ./.eslintrc.json src/**",
+		"start": "node src/index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/marchein/zurhalbenstunde.git"
+	},
+	"bugs": {
+		"url": "https://github.com/marchein/zurhalbenstunde/issues"
+	},
+	"homepage": "https://github.com/marchein/zurhalbenstunde#readme"
+}
