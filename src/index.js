@@ -17,15 +17,15 @@ let days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"
 var date = new Date();
 
 if (date.getMinutes() % TWEET_EVERY_X_MINUTES === 0) {
-	let time = date.getHours() + ":" + (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
+	let time = (date.getHours() < 10 ? "0" : "") + date.getHours() + ":" + (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
 	let dayWord = days[date.getDay()];
-	let day = date.getDate();
+	let day = (date.getDate() < 10 ? "0" : "") + date.getDate();
 	let year = date.getFullYear();
 	let month = months[date.getMonth()];
 
 	let newTweet = "Es ist jetzt " + time + " Uhr am " + dayWord + ", den " + day + ". " + month + " " + year + ".";
 
-	/*client.post("statuses/update", {
+	client.post("statuses/update", {
 		status: newTweet
 	}, function (error, tweet, response) {
 		if (error) {
@@ -33,5 +33,5 @@ if (date.getMinutes() % TWEET_EVERY_X_MINUTES === 0) {
 		}
 		console.log(tweet);
 		console.log(response);
-	});*/
+	});
 }
