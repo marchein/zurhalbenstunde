@@ -3,7 +3,8 @@
 	"version": "1.0.0",
 	"description": "Backend for \"@zurhalbenstunde\" on twitter",
 	"keywords": [
-		"twitter", "bot"
+		"twitter",
+		"bot"
 	],
 	"main": "index.js",
 	"author": "Marc Hein",

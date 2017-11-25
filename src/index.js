@@ -8,13 +8,15 @@ var client = new Twitter({
 	access_token_secret: config.twitter.ACCESS_TOKEN_SECRET
 });
 
+let TWEET_EVERY_X_MINUTES = 30;
+
 let months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 let days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
 
 // create new date
 var date = new Date();
 
-if (date.getMinutes() === 0 || date.getMinutes() === 30) {
+if (date.getMinutes() % TWEET_EVERY_X_MINUTES === 0) {
 	let time = date.getHours() + ":" + (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
 	let dayWord = days[date.getDay()];
 	let day = date.getDate();
@@ -23,7 +25,7 @@ if (date.getMinutes() === 0 || date.getMinutes() === 30) {
 
 	let newTweet = "Es ist jetzt " + time + " Uhr am " + dayWord + ", den " + day + ". " + month + " " + year + ".";
 
-	client.post("statuses/update", {
+	/*client.post("statuses/update", {
 		status: newTweet
 	}, function (error, tweet, response) {
 		if (error) {
@@ -31,5 +33,5 @@ if (date.getMinutes() === 0 || date.getMinutes() === 30) {
 		}
 		console.log(tweet);
 		console.log(response);
-	});
+	});*/
 }
