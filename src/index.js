@@ -11,7 +11,7 @@ var client = new Twitter({
 let TWEET_EVERY_X_MINUTES = 30;
 
 let months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
-let days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
+let days = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
 
 // create new date
 var date = new Date();
@@ -24,6 +24,8 @@ if (date.getMinutes() % TWEET_EVERY_X_MINUTES === 0) {
 	let month = months[date.getMonth()];
 
 	let newTweet = "Es ist jetzt " + time + " Uhr am " + dayWord + ", den " + day + ". " + month + " " + year + ".";
+
+	console.log(newTweet);
 
 	client.post("statuses/update", {
 		status: newTweet
